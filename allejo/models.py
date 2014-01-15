@@ -50,7 +50,7 @@ class Player(models.Model):
         pass
 
 
-class Match(models.Model):
+class Match(MPTTModel):
 
     parent = TreeForeignKey(
         'self', null=True, blank=True, related_name='children')
