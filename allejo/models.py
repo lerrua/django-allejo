@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
+from mptt.models import MPTTModel, TreeForeignKey
+
 _BN = {
     'blank': True,
     'null': True
@@ -49,6 +51,9 @@ class Player(models.Model):
 
 
 class Match(models.Model):
+
+    parent = TreeForeignKey(
+        'self', null=True, blank=True, related_name='children')
 
     home = models.ForeignKey(
         'Player',
