@@ -23,7 +23,7 @@ url = 'http://github.com/lerrua/django-allejo'
 author = 'Igor P. Leroy'
 author_email = 'ip.leroy@gmail.com'
 license = 'BSD'
-install_requires = ['south', 'django-mptt', ]
+install_requires = ['South>=0.7.6', 'django-mptt>=0.5.3', ]
 
 
 if sys.argv[-1] == 'publish':
