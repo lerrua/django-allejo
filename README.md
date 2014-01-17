@@ -1,13 +1,15 @@
 django-allejo
 =============
 
-![allejo](/allejo.jpg "django-allejo")
+<p align="center">
+![allejo](/allejo.png "django-allejo")
+</p>
 
 
 ### ROADMAP
 
 
-[ ] Create Championship management with a number of players, initially support only playoffs.
+[x] Create Championship management with a number of players, initially support only playoffs.
 
 [ ] Create an admin interface to support fill scores for this tournament.
 
