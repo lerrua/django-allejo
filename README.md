@@ -2,7 +2,7 @@ django-allejo
 =============
 
 <p align="center">
-![allejo](/allejo.png "django-allejo")
+  <img src="/allejo.png" alt="django-allejo" rel="django-allejo">
 </p>
 
 
