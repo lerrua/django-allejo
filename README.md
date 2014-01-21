@@ -6,13 +6,12 @@ django-allejo
 </p>
 
 
-### ROADMAP
+### Running Demo app:
+```
+cd demo
+pip install -r requirements.txt
+python manage.py syncdb
+python manage.py migrate --all
+python manage.py runserver
+``` 
 
-
-[x] Create Championship management with a number of players, initially support only playoffs.
-
-[ ] Create an admin interface to support fill scores for this tournament.
-
-[ ] Create a simple API for consuming this championship and thinks the best way to render it on a template.
-
-[ ] Create basic skins for playoff layouts.
