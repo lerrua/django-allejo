@@ -3,13 +3,10 @@ from django.utils.translation import ugettext_lazy as _
 
 from mptt.models import MPTTModel, TreeForeignKey
 
-_BN = {
-    'blank': True,
-    'null': True
-}
+_BN = {'blank': True, 'null': True}
 
 
-class Champioship(models.Model):
+class Championship(models.Model):
 
     name = models.CharField(
         verbose_name=_(u'Name'),
@@ -28,8 +25,8 @@ class Champioship(models.Model):
     )
 
     class Meta:
-        verbose_name = _('Champioship')
-        verbose_name_plural = _('Champioships')
+        verbose_name = _('Championship')
+        verbose_name_plural = _('Championships')
 
     def __unicode__(self):
         pass
@@ -79,9 +76,9 @@ class Match(MPTTModel):
         **_BN
     )
 
-    champioship = models.ForeignKey(
-        'Champioship',
-        verbose_name=_(u'Choice a champioship'),
+    championship = models.ForeignKey(
+        'Championship',
+        verbose_name=_(u'Choice a championship'),
         **_BN
     )
 
