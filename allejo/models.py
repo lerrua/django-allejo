@@ -29,7 +29,7 @@ class Championship(models.Model):
         verbose_name_plural = _('Championships')
 
     def __unicode__(self):
-        pass
+        return self.name
 
 
 class Player(models.Model):
@@ -44,7 +44,7 @@ class Player(models.Model):
         verbose_name_plural = _('Players')
 
     def __unicode__(self):
-        pass
+        return self.name
 
 
 class Match(MPTTModel):
@@ -97,4 +97,7 @@ class Match(MPTTModel):
         verbose_name_plural = _('Matches')
 
     def __unicode__(self):
-        pass
+        return u"%s %s - %s" % (
+            self.championship.name,
+            self.home,
+            self.away)
