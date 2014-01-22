@@ -21,3 +21,11 @@ python manage.py runserver
 * Listagem de campeonatos na ```demo/index.html``` deve linkar para interna do campeonato.
 * Criar interna de campeonato. 
 * A interna de campeonato deve exibir a chave de playoffs. [hoje a chave de playoffs está estática]
+
+
+### Credits:
+
+```
+Special thanks to Intip! Thanks for giving space for our 'social codings'. 
+Thanks to all members of the company who contributed these three days of fun. <3
+```
