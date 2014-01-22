@@ -1,5 +1,9 @@
 from django.shortcuts import render
 
+from allejo.models import Championship
+
 
 def home(request):
-    return render(request, 'demo/index.html')
+    championships = Championship.objects.all()
+    return render(
+        request, 'demo/index.html', {'championships': championships})

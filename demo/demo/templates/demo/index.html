@@ -1,1 +1,15 @@
-Hello World!
+{% extends 'demo/site_base.html' %}
+
+{% load i18n %}
+
+{% block content %}
+    {% if not championships %}
+        {% trans "No championships found. Please use the admin." %}
+    {% else %} 
+
+        {% for championship in championships %}
+            {{ championship }}
+        {% endfor %}
+
+    {% endif %}
+{% endblock %}
