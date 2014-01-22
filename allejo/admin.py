@@ -1,11 +1,11 @@
 from django.contrib import admin
-from models import Champioship, Player, Match
+from models import Championship, Player, Match
 
 
-class ChampioshipAdmin(admin.ModelAdmin):
+class ChampionshipAdmin(admin.ModelAdmin):
     filter_horizontal = ('players', )
 
 
-admin.site.register(Champioship, ChampioshipAdmin)
+admin.site.register(Championship, ChampionshipAdmin)
 admin.site.register(Match)
 admin.site.register(Player)
