@@ -6,7 +6,7 @@ django-allejo
 </p>
 
 
-### Running Demo app:
+### Running Demo app
 ```
 cd demo
 pip install -r requirements.txt
@@ -15,7 +15,7 @@ python manage.py migrate --all
 python manage.py runserver
 ``` 
 
-### Roadmap:
+### Roadmap
 
 * Ao criar um campeonato, deve gerar todos os jogos pelo ```mptt```.
 * Listagem de campeonatos na ```demo/index.html``` deve linkar para interna do campeonato.
@@ -23,7 +23,7 @@ python manage.py runserver
 * A interna de campeonato deve exibir a chave de playoffs. [hoje a chave de playoffs está estática]
 
 
-### Credits:
+### Credits
 
 ```
 Special thanks to Intip! Thanks for giving space for our 'social codings'. 
