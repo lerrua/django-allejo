@@ -8,7 +8,7 @@
     {% else %} 
 
         {% for championship in championships %}
-            {{ championship }}
+            <a href="{% url 'championship'  championship.id %}">{{ championship.name }}</a>
         {% endfor %}
 
     {% endif %}

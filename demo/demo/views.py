@@ -7,3 +7,6 @@ def home(request):
     championships = Championship.objects.all()
     return render(
         request, 'demo/index.html', {'championships': championships})
+
+def championship(request, pk):
+	pass
