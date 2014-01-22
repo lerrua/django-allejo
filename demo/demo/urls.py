@@ -7,4 +7,6 @@ urlpatterns = patterns(
     '',
     url(r'^$', 'demo.views.home', name='home'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^championship/(\d+)/$', 'demo.views.championship',
+        name='championship')
 )
