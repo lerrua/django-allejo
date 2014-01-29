@@ -18,8 +18,6 @@ python manage.py runserver
 ### Roadmap
 
 * Ao criar um campeonato, deve gerar todos os jogos pelo ```mptt```.
-* Listagem de campeonatos na ```demo/index.html``` deve linkar para interna do campeonato.
-* Criar interna de campeonato. 
 * A interna de campeonato deve exibir a chave de playoffs. [hoje a chave de playoffs está estática]
 
 
@@ -28,4 +26,8 @@ python manage.py runserver
 ```
 Special thanks to Intip! Thanks for giving space for our 'social codings'. 
 Thanks to all members of the company who contributed these three days of fun. <3
+
 ```
+### Copyright
+
+Copyright (c) 2013 Igor P. Leroy. See LICENSE for details.
