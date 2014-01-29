@@ -26,8 +26,8 @@ python manage.py runserver
 ```
 Special thanks to Intip! Thanks for giving space for our 'social codings'. 
 Thanks to all members of the company who contributed these three days of fun. <3
-
 ```
+
 ### Copyright
 
 Copyright (c) 2013 Igor P. Leroy. See [LICENSE](/LICENSE) for details.
