@@ -1,3 +1,5 @@
+from __future__ import unicode_literals
+
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
 
@@ -7,21 +9,16 @@ _BN = {'blank': True, 'null': True}
 
 
 class Championship(models.Model):
-
-    name = models.CharField(
-        verbose_name=_(u'Name'),
-        max_length=100,
-    )
+    name = models.CharField(verbose_name=_(u'Name'), max_length=100)
 
     max_players = models.PositiveIntegerField(
-        verbose_name=_(u'Max of players')
+        verbose_name=_('Max of players')
     )
 
     started_at = models.DateTimeField()
 
     players = models.ManyToManyField(
-        'Player',
-        verbose_name=_(u'Players')
+        'Player', verbose_name=_(u'Players')
     )
 
     class Meta:
@@ -33,9 +30,8 @@ class Championship(models.Model):
 
 
 class Player(models.Model):
-
     name = models.CharField(
-        verbose_name=_(u'Name'),
+        verbose_name=_('Name'),
         max_length=100,
     )
 
@@ -54,37 +50,37 @@ class Match(MPTTModel):
 
     home = models.ForeignKey(
         'Player',
-        verbose_name=_(u'Home player'),
+        verbose_name=_('Home player'),
         related_name='home_player_set',
         **_BN
     )
 
     home_score = models.IntegerField(
-        verbose_name=_(u'Score home player'),
+        verbose_name=_('Score home player'),
         **_BN
     )
 
     away = models.ForeignKey(
         'Player',
-        verbose_name=_(u'Away player'),
+        verbose_name=_('Away player'),
         related_name='away_player_set',
         **_BN
     )
 
     away_score = models.IntegerField(
-        verbose_name=_(u'Score away player'),
+        verbose_name=_('Score away player'),
         **_BN
     )
 
     championship = models.ForeignKey(
         'Championship',
-        verbose_name=_(u'Choice a championship'),
+        verbose_name=_('Choice a championship'),
         **_BN
     )
 
     winner = models.ForeignKey(
         'Player',
-        verbose_name=_(u'Player winner'),
+        verbose_name=_('Player winner'),
         **_BN
     )
 
@@ -97,7 +93,4 @@ class Match(MPTTModel):
         verbose_name_plural = _('Matches')
 
     def __unicode__(self):
-        return u"%s %s - %s" % (
-            self.championship.name,
-            self.home,
-            self.away)
+        return "%s %s - %s" % (self.championship.name, self.home, self.away)
