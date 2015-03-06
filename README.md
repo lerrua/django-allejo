@@ -6,27 +6,10 @@ django-allejo
 </p>
 
 
-### Running Demo app
-```
-cd demo
-pip install -r requirements.txt
-python manage.py syncdb
-python manage.py migrate --all
-python manage.py runserver
-``` 
-
-### Roadmap
-
-* Ao criar um campeonato, deve gerar todos os jogos pelo ```mptt```.
-* A interna de campeonato deve exibir a chave de playoffs. [hoje a chave de playoffs está estática]
-
-
 ### Credits
 
-```
-Special thanks to Intip! Thanks for giving space for our 'social codings'. 
+Special thanks to [Intip](https://www.github.com/intip)! Thanks for giving space for our 'social codings' hackathons.
 Thanks to all members of the company who contributed these three days of fun. <3
-```
 
 ### Copyright
 
