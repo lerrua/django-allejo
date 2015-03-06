@@ -10,6 +10,9 @@ class Championship(models.Model):
     max_players = models.PositiveIntegerField(
         verbose_name=_('Max of players'))
 
+    year = models.PositiveIntegerField(
+        verbose_name=_('Year'), default=0)
+
     players = models.ManyToManyField(
         'Player', verbose_name=_('Players')
     )
@@ -40,8 +43,7 @@ class Match(models.Model):
     home = models.ForeignKey(
         'Player',
         verbose_name=_('Home player'),
-        related_name='home_player_set',
-        blank=True, null=True
+        related_name='home_player_set'
     )
 
     home_score = models.IntegerField(
@@ -51,18 +53,14 @@ class Match(models.Model):
     away = models.ForeignKey(
         'Player',
         verbose_name=_('Away player'),
-        related_name='away_player_set',
-        blank=True, null=True
-    )
+        related_name='away_player_set')
 
     away_score = models.IntegerField(
-        verbose_name=_('Score away player'), blank=True, null=True
-    )
+        verbose_name=_('Score away player'), blank=True, null=True)
 
     championship = models.ForeignKey(
         'Championship',
-        verbose_name=_('Choice a championship'),
-        blank=True, null=True
+        verbose_name=_('Choice a championship')
     )
 
     winner = models.ForeignKey(
@@ -75,11 +73,13 @@ class Match(models.Model):
 
     category = models.CharField(
         verbose_name=_('Category'), max_length=100,
-        blank=True, null=True, db_index=True)
+        blank=True, null=True, db_index=True
+    )
 
     group = models.CharField(
         verbose_name=_('Group'), max_length=1,
-        blank=True, null=True, db_index=True)
+        blank=True, null=True, db_index=True
+    )
 
     class Meta:
         verbose_name = _('Match')
@@ -92,15 +92,13 @@ class Match(models.Model):
 class Standings(model.Model):
     championship = models.ForeignKey(
         'Championship',
-        verbose_name=_('Choice a championship'),
-        blank=True, null=True
+        verbose_name=_('Choice a championship')
     )
 
     player = models.ForeignKey(
         'Player',
         verbose_name=_('Player'),
-        related_name='player_set',
-        blank=True, null=True
+        related_name='player_set'
     )
 
     category = models.CharField(
@@ -111,6 +109,7 @@ class Standings(model.Model):
         verbose_name=_('Group'), max_length=1,
         blank=True, null=True, db_index=True)
 
+    # standings table info
     games_played = models.IntegerField(
         verbose_name=_("Games Played"), default=0)
 
