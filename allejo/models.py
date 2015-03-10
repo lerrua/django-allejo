@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
 from django.db import models
@@ -7,11 +8,11 @@ from django.utils.translation import ugettext_lazy as _
 class Championship(models.Model):
     name = models.CharField(verbose_name=_('Name'), max_length=200)
 
+    main_image = models.ImageField(
+        upload_to='allejo/championship', blank=True, null=True)
+
     max_players = models.PositiveIntegerField(
         verbose_name=_('Max of players'))
-
-    year = models.PositiveIntegerField(
-        verbose_name=_('Year'), default=0)
 
     players = models.ManyToManyField(
         'Player', verbose_name=_('Players')
@@ -29,7 +30,10 @@ class Championship(models.Model):
 
 class Player(models.Model):
     name = models.CharField(
-        verbose_name=_('Name'), max_length=100, db_index=True)
+        verbose_name=_('Name'), max_length=200, db_index=True)
+
+    main_image = models.ImageField(
+        upload_to='allejo/player', blank=True, null=True)
 
     class Meta:
         verbose_name = _('Player')
@@ -71,15 +75,29 @@ class Match(models.Model):
 
     game_date = models.DateTimeField(blank=True, null=True)
 
+    location = models.CharField(
+        verbose_name=_('Location'), max_length=200)
+
     category = models.CharField(
         verbose_name=_('Category'), max_length=100,
-        blank=True, null=True, db_index=True
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: playoffs, final, quarter-final')
     )
 
     group = models.CharField(
         verbose_name=_('Group'), max_length=1,
-        blank=True, null=True, db_index=True
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: A, B, C, D')
     )
+
+    turn = models.CharField(
+        verbose_name=_('Turn'), max_length=1,
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: 1, 2')
+    )
+
+    main_image = models.ImageField(
+        upload_to='allejo/match', blank=True, null=True)
 
     class Meta:
         verbose_name = _('Match')
@@ -89,10 +107,10 @@ class Match(models.Model):
         return "%s %s - %s" % (self.championship.name, self.home, self.away)
 
 
-class Standings(model.Model):
+class Standings(models.Model):
     championship = models.ForeignKey(
         'Championship',
-        verbose_name=_('Choice a championship')
+        verbose_name=_('Championship')
     )
 
     player = models.ForeignKey(
@@ -103,11 +121,21 @@ class Standings(model.Model):
 
     category = models.CharField(
         verbose_name=_('Category'), max_length=100,
-        blank=True, null=True, db_index=True)
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: playoffs, final, quarter-final')
+    )
 
     group = models.CharField(
         verbose_name=_('Group'), max_length=1,
-        blank=True, null=True, db_index=True)
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: A, B, C, D')
+    )
+
+    turn = models.CharField(
+        verbose_name=_('Turn'), max_length=1,
+        blank=True, null=True, db_index=True,
+        help_text=_('Example: 1, 2')
+    )
 
     # standings table info
     games_played = models.IntegerField(
