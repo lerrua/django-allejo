@@ -8,7 +8,8 @@ import sys
 version = '0.1.0'
 name = 'django-allejo'
 package = 'allejo'
-description = ''
+description = 'Provides management and creation for custom tournaments and \
+rankings for some sports like soccer.'
 url = 'http://github.com/lerrua/django-allejo'
 author = 'Igor P. Leroy'
 author_email = 'ip.leroy@gmail.com'
