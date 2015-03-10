@@ -5,28 +5,56 @@ django-allejo
   <img src="/allejo.png" alt="django-allejo" rel="django-allejo">
 </p>
 
+Allejo is an django app who provides management and creation for custom tournaments and rankings for some sports like soccer.
+You can use django-allejo for football management simulation games like elifoot or Football Manager also for backend APIs like goalserve and Tabela Fácil.
 
-### Running Demo app
+Allejo works fine on ***Django 1.4+*** and ***Django 1.7***
+
+
+### Installation
+
+```python
+  pip install django-allejo
 ```
-cd demo
-pip install -r requirements.txt
-python manage.py syncdb
-python manage.py migrate --all
-python manage.py runserver
-``` 
 
-### Roadmap
+Put allejo app into `INSTALLED_APPS`:
 
-* Ao criar um campeonato, deve gerar todos os jogos pelo ```mptt```.
-* A interna de campeonato deve exibir a chave de playoffs. [hoje a chave de playoffs está estática]
+```python
+  INSTALLED_APPS = [
+      ...
+      'allejo',
+      ]
+```
 
+```
+  python manage.py migrate allejo
+```
+
+### Django < 1.7
+
+For Django 1.4+ and South users use this `SETTINGS` below:
+
+```python
+  SOUTH_MIGRATION_MODULES = {
+      'allejo': 'allejo.south_migrations',
+  }
+```
+
+### Usage
+
+You can input data through django-admin or make a wrapper to read some external API.
+
+```python
+  # get all matches from a championship
+  championship.match_set.all()
+
+  # standings from a championship
+  championship.standings_set.all()
+```
 
 ### Credits
 
-```
-Special thanks to Intip! Thanks for giving space for our 'social codings'. 
-Thanks to all members of the company who contributed these three days of fun. <3
-```
+*Special thanks to [Intip](https://www.github.com/intip)! Thanks for giving space for our 'social codings' hackathons.*
 
 ### Copyright
 
